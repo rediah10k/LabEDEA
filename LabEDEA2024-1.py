@@ -24,7 +24,7 @@ def euler(a, b, c, d, X0, t_fin, dt, num_trayectorias):
     # Planteamiento de la EDE con los valores parametrizados
     for t in range(npuntos):
         dBt = sqrtdt * np.random.normal(0, 1, num_trayectorias)
-        X[:, t] = X[:, t-1] + (a * X[:, t] + b) * dt + (c * X[:, t] + d) * dBt
+        X[:, t+1] = X[:, t] + (a * X[:, t] + b) * dt + (c * X[:, t] + d) * dBt
 
     t = np.linspace(0, t_fin, npuntos + 1)
     
@@ -33,19 +33,20 @@ def euler(a, b, c, d, X0, t_fin, dt, num_trayectorias):
     term3 = (2 * b * d) / (a * c)
     term4 = (d**2) / (c**2)
     
-    # Cálculo del valor esperado teórico
+    # Cálculo del valor esperado teórico y su varianza
     E_X_teorico = (b / a) * (np.exp(a * t) - 1) + X0 * np.exp(a * t)
     E_X2_teorico = (np.exp(a * t) * (term1 + term2)) + term3 - term4 + np.exp(c**2 * t)
     Var_teorica = E_X2_teorico - E_X_teorico**2
-    Var_teorica=np.sqrt(Var_teorica)
+    
+    
     # Graficar trayectorias simuladas
     for i in range(num_trayectorias):
         plt.plot(t, X[i, :], color='orange', linewidth=0.5)
-
+    Var_teorico = E_X2_teorico - E_X_teorico
     #Var_teorico = E_X2_teorico - np.sqrt(E_X_teorico)
     # Graficar valor esperado teórico y bandas de varianza teórica
     plt.plot(t, E_X_teorico, color='red', linewidth=2, label='Valor esperado')
-    plt.plot(t, Var_teorica, color='blue', linewidth=2, label='Varianza del proceso')
+    plt.plot(t, Var_teorico, color='blue', linewidth=2, label='Varianza del proceso')
     
     #ESPACIO PARA GRAFICAR LA VARIANZA
 
