@@ -232,7 +232,7 @@ def iniciar_animacion(x_tiempoPosicion, x_esperado, x_tiempo, v_esperado):
         animacion.blit(peso_texto, texto_rect)
 
         # Dibujar la posición esperada al lado de la masa
-        posicion_esperada_texto = fuente.render(f'Pos. Esperada: {(x_esperado_list[indice_actual]):.2f}', True, texto_color)
+        posicion_esperada_texto = fuente.render(f'Posicion trayectoria: {(x_esperado_list[indice_actual]):.2f}', True, texto_color)
         animacion.blit(posicion_esperada_texto, (anchoP // 2 + 50, y_anim))
 
         # Dibuja la sección de datos en tiempo real
