@@ -266,41 +266,44 @@ frame = ttk.Frame(window, padding="10 10 10 10")
 frame.pack(fill=tk.BOTH, expand=True)
 
 # Crear etiquetas y campos de entrada
-ttk.Label(frame, text="Masa (m):").grid(column=0, row=0, sticky=tk.W)
+ttk.Label(frame, text="Masa del objeto:").grid(column=0, row=0, sticky=tk.W)
 entry_m = ttk.Entry(frame)
 entry_m.grid(column=1, row=0, sticky=(tk.W, tk.E))
     
-ttk.Label(frame, text="Constante de amortiguamiento (c):").grid(column=0, row=1, sticky=tk.W)
+ttk.Label(frame, text="Constante de amortiguamiento:").grid(column=0, row=1, sticky=tk.W)
 entry_c = ttk.Entry(frame)
 entry_c.grid(column=1, row=1, sticky=(tk.W, tk.E))
 
-ttk.Label(frame, text="Constante del resorte (k):").grid(column=0, row=2, sticky=tk.W)
+ttk.Label(frame, text="Constante del resorte:").grid(column=0, row=2, sticky=tk.W)
 entry_k = ttk.Entry(frame)
 entry_k.grid(column=1, row=2, sticky=(tk.W, tk.E))
 
-ttk.Label(frame, text="Sigma:").grid(column=0, row=3, sticky=tk.W)
-entry_sigma = ttk.Entry(frame)
-entry_sigma.grid(column=1, row=3, sticky=(tk.W, tk.E))
-
-ttk.Label(frame, text="Posición Inicial (x0):").grid(column=0, row=4, sticky=tk.W)
+ttk.Label(frame, text="Posición Inicial:").grid(column=0, row=3, sticky=tk.W)
 entry_x0 = ttk.Entry(frame)
-entry_x0.grid(column=1, row=4, sticky=(tk.W, tk.E))
+entry_x0.grid(column=1, row=3, sticky=(tk.W, tk.E))
 
-ttk.Label(frame, text="Velocidad Inicial (v0):").grid(column=0, row=5, sticky=tk.W)
+ttk.Label(frame, text="Velocidad Inicial:").grid(column=0, row=4, sticky=tk.W)
 entry_v0 = ttk.Entry(frame)
-entry_v0.grid(column=1, row=5, sticky=(tk.W, tk.E))
+entry_v0.grid(column=1, row=4, sticky=(tk.W, tk.E))
 
-ttk.Label(frame, text="Paso (dt):").grid(column=0, row=6, sticky=tk.W)
-entry_dt = ttk.Entry(frame)
-entry_dt.grid(column=1, row=6, sticky=(tk.W, tk.E))
-
-ttk.Label(frame, text="Número de Trayectorias:").grid(column=0, row=7, sticky=tk.W)
-entry_tr = ttk.Entry(frame)
-entry_tr.grid(column=1, row=7, sticky=(tk.W, tk.E))
-
-ttk.Label(frame, text="Tiempo Final (tf):").grid(column=0, row=8, sticky=tk.W)
+ttk.Label(frame, text="Tiempo Final:").grid(column=0, row=5, sticky=tk.W)
 entry_tf = ttk.Entry(frame)
-entry_tf.grid(column=1, row=8, sticky=(tk.W, tk.E))
+entry_tf.grid(column=1, row=5, sticky=(tk.W, tk.E))
+
+ttk.Label(frame, text="Sigma:").grid(column=0, row=6, sticky=tk.W)
+entry_sigma = ttk.Entry(frame)
+entry_sigma.grid(column=1, row=6, sticky=(tk.W, tk.E))
+
+
+ttk.Label(frame, text="Distancia entre puntos o dt:").grid(column=0, row=7, sticky=tk.W)
+entry_dt = ttk.Entry(frame)
+entry_dt.grid(column=1, row=7, sticky=(tk.W, tk.E))
+
+ttk.Label(frame, text="Número de Trayectorias:").grid(column=0, row=8, sticky=tk.W)
+entry_tr = ttk.Entry(frame)
+entry_tr.grid(column=1, row=8, sticky=(tk.W, tk.E))
+
+
 
 button = tk.Button(window, text="Simular", command=retrieve_input)
 button.pack()
